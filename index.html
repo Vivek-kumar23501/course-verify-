@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Course Certificate</title>
+  <style>
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #f4f6f8;
+      font-family: Georgia, "Noto Serif", serif;
+    }
+    #certBtn {
+      padding: 10px 24px;
+      font-size: 16px;
+      font-family: inherit;
+      color: #fff;
+      background: #3573c4;   /* screenshot wala blue */
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    #certBtn:hover { background: #2a5fa5; }
+
+    /* Popup overlay */
+    #overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.8);
+      align-items: center;
+      justify-content: center;
+      z-index: 10;
+    }
+    #overlay img {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 8px;
+      background: #fff;
+    }
+    #closeBtn {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      font-size: 36px;
+      color: #fff;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <button id="certBtn">Course Certificate</button>
+
+  <div id="overlay">
+    <span id="closeBtn">&times;</span>
+    <img src="certificate.png" alt="NPTEL Course Certificate">
+  </div>
+
+  <script>
+    const btn = document.getElementById('certBtn');
+    const overlay = document.getElementById('overlay');
+    const closeBtn = document.getElementById('closeBtn');
+
+    btn.onclick = () => overlay.style.display = 'flex';
+    closeBtn.onclick = () => overlay.style.display = 'none';
+    overlay.onclick = (e) => {
+      if (e.target === overlay) overlay.style.display = 'none';
+    };
+  </script>
+
+</body>
+</html>
